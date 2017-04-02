@@ -1,0 +1,200 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://stringjs.com">string (v3.3.3)</a>
+</h1>
+<h4>string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.string">module string</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.string.extendPrototype">
+            function <span class="apidocSignatureSpan">string.</span>extendPrototype
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.string.restorePrototype">
+            function <span class="apidocSignatureSpan">string.</span>restorePrototype
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">string.</span>ENTITIES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">string.</span>TMPL_CLOSE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">string.</span>TMPL_OPEN</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">string.</span>VERSION</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.string" id="apidoc.module.string">module string</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.string.extendPrototype" id="apidoc.element.string.extendPrototype">
+        function <span class="apidocSignatureSpan">string.</span>extendPrototype
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extendPrototype() {
+  for (var name in __sp) {
+    (function(name){
+      var func = __sp[name];
+      if (!__nsp.hasOwnProperty(name)) {
+        methodsAdded.push(name);
+        __nsp[name] = function() {
+          String.prototype.s = this;
+          return func.apply(this, arguments);
+        }
+      }
+    })(name);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+var name = S('Your name is JP').right(2).toString(); //'JP'
+```
+
+Still like the clean look of calling these methods directly on native Strings? No problem. Call `extendPrototype()`. Make sure to
+ not call this at the module level, at it'll effect the entire application lifecycle. You should really only use this at the
+ method level. The one exception being if your application will not be a dependency of another application.
+
+```javascript
+S.<span class="apidocCodeKeywordSpan">extendPrototype</span>();
+var name = 'Your name is JP'.right(2); //'JP'
+S.restorePrototype(); //be a good citizen and clean up
+```
+
+
+### Browser Compatibility
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.string.restorePrototype" id="apidoc.element.string.restorePrototype">
+        function <span class="apidocSignatureSpan">string.</span>restorePrototype
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function restorePrototype() {
+  for (var i = 0; i &lt; methodsAdded.length; ++i)
+    delete String.prototype[methodsAdded[i]];
+  methodsAdded.length = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Still like the clean look of calling these methods directly on native Strings? No problem. Call `extendPrototype()`. Make sure to
+ not call this at the module level, at it'll effect the entire application lifecycle. You should really only use this at the
+ method level. The one exception being if your application will not be a dependency of another application.
+
+```javascript
+S.extendPrototype();
+var name = 'Your name is JP'.right(2); //'JP'
+S.<span class="apidocCodeKeywordSpan">restorePrototype</span>(); //be a good citizen and clean up
+```
+
+
+### Browser Compatibility
+
+`string.js` has been designed to be compatible with Node.js and with IE6+, Firefox 3+, Safari 2+, Chrome 3+. Please [click here][
+browsertest] to run the tests in your browser. Report any browser issues here: https://github.com/jprichardson/string.js/issues
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
