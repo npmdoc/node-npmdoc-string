@@ -1,16 +1,16 @@
 <svg height="206" width="720" xmlns="http://www.w3.org/2000/svg">
 <rect height="206" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">  0.  2017-04-08 06:58:48 +0000   149560 bytes  .</tspan>
-<tspan x="10" y="42">  1.  2017-04-08 06:58:48 +0000     7969 bytes  CHANGELOG.md</tspan>
-<tspan x="10" y="58">  2.  2017-04-08 06:58:48 +0000    31190 bytes  README.md</tspan>
-<tspan x="10" y="74">  3.  2017-04-08 06:58:48 +0000    39820 bytes  dist/string.js</tspan>
-<tspan x="10" y="90">  4.  2017-04-08 06:58:48 +0000    27717 bytes  dist/string.min.js</tspan>
-<tspan x="10" y="106">  5.  2017-04-08 06:58:48 +0000     1115 bytes  gulpfile.js</tspan>
-<tspan x="10" y="122">  6.  2017-04-08 06:58:48 +0000      202 bytes  lib/_count.js</tspan>
-<tspan x="10" y="138">  7.  2017-04-08 06:58:48 +0000      606 bytes  lib/_splitLeft.js</tspan>
-<tspan x="10" y="154">  8.  2017-04-08 06:58:48 +0000      669 bytes  lib/_splitRight.js</tspan>
-<tspan x="10" y="170">  9.  2017-04-08 06:58:48 +0000    37406 bytes  lib/string.js</tspan>
-<tspan x="10" y="186"> 10.  2017-04-08 06:58:48 +0000     2866 bytes  package.json</tspan>
+<tspan x="10" y="26">  0.  2017-04-22 07:23:29 +0000   149560 bytes  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-22 07:23:29 +0000     7969 bytes  CHANGELOG.md</tspan>
+<tspan x="10" y="58">  2.  2017-04-22 07:23:29 +0000    31190 bytes  README.md</tspan>
+<tspan x="10" y="74">  3.  2017-04-22 07:23:29 +0000    39820 bytes  dist/string.js</tspan>
+<tspan x="10" y="90">  4.  2017-04-22 07:23:29 +0000    27717 bytes  dist/string.min.js</tspan>
+<tspan x="10" y="106">  5.  2017-04-22 07:23:29 +0000     1115 bytes  gulpfile.js</tspan>
+<tspan x="10" y="122">  6.  2017-04-22 07:23:29 +0000      202 bytes  lib/_count.js</tspan>
+<tspan x="10" y="138">  7.  2017-04-22 07:23:29 +0000      606 bytes  lib/_splitLeft.js</tspan>
+<tspan x="10" y="154">  8.  2017-04-22 07:23:29 +0000      669 bytes  lib/_splitRight.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-22 07:23:29 +0000    37406 bytes  lib/string.js</tspan>
+<tspan x="10" y="186"> 10.  2017-04-22 07:23:29 +0000     2866 bytes  package.json</tspan>
 </text>
 </svg>
