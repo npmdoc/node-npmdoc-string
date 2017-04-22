@@ -1,9 +1,14 @@
-# api documentation for  [string (v3.3.3)](http://stringjs.com)  [![npm package](https://img.shields.io/npm/v/npmdoc-string.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-string) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-string.svg)](https://travis-ci.org/npmdoc/node-npmdoc-string)
+# npmdoc-string
+
+#### api documentation for  [string (v3.3.3)](http://stringjs.com)  [![npm package](https://img.shields.io/npm/v/npmdoc-string.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-string) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-string.svg)](https://travis-ci.org/npmdoc/node-npmdoc-string)
+
 #### string contains methods that aren't included in the vanilla JavaScript string such as escaping html, decoding html entities, stripping tags, etc.
 
-[![NPM](https://nodei.co/npm/string.png?downloads=true)](https://www.npmjs.com/package/string)
+[![NPM](https://nodei.co/npm/string.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/string)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-string/build/screenCapture.buildNpmdoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-string%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-string/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-string/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-string/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-string/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-string/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-string/build/screenCapture.npmPackageListing.svg)
 
@@ -17,8 +22,7 @@
 
 {
     "author": {
-        "name": "JP Richardson",
-        "email": "jprichardson@gmail.com"
+        "name": "JP Richardson"
     },
     "bugs": {
         "url": "https://github.com/jprichardson/string.js/issues"
@@ -68,17 +72,14 @@
     "main": "lib/string",
     "maintainers": [
         {
-            "name": "jprichardson",
-            "email": "jprichardson@gmail.com"
+            "name": "jprichardson"
         },
         {
-            "name": "az7arul",
-            "email": "az7arul@gmail.com"
+            "name": "az7arul"
         }
     ],
     "name": "string",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/jprichardson/string.js.git"
@@ -87,96 +88,9 @@
         "istanbul": "istanbul cover node_modules/.bin/_mocha test/string.test.js",
         "test": "gulp test"
     },
-    "version": "3.3.3"
+    "version": "3.3.3",
+    "bin": {}
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module string](#apidoc.module.string)
-1.  [function <span class="apidocSignatureSpan">string.</span>extendPrototype ()](#apidoc.element.string.extendPrototype)
-1.  [function <span class="apidocSignatureSpan">string.</span>restorePrototype ()](#apidoc.element.string.restorePrototype)
-1.  object <span class="apidocSignatureSpan">string.</span>ENTITIES
-1.  string <span class="apidocSignatureSpan">string.</span>TMPL_CLOSE
-1.  string <span class="apidocSignatureSpan">string.</span>TMPL_OPEN
-1.  string <span class="apidocSignatureSpan">string.</span>VERSION
-
-
-
-# <a name="apidoc.module.string"></a>[module string](#apidoc.module.string)
-
-#### <a name="apidoc.element.string.extendPrototype"></a>[function <span class="apidocSignatureSpan">string.</span>extendPrototype ()](#apidoc.element.string.extendPrototype)
-- description and source-code
-```javascript
-function extendPrototype() {
-  for (var name in __sp) {
-    (function(name){
-      var func = __sp[name];
-      if (!__nsp.hasOwnProperty(name)) {
-        methodsAdded.push(name);
-        __nsp[name] = function() {
-          String.prototype.s = this;
-          return func.apply(this, arguments);
-        }
-      }
-    })(name);
-  }
-}
-```
-- example usage
-```shell
-...
-'''javascript
-var name = S('Your name is JP').right(2).toString(); //'JP'
-'''
-
-Still like the clean look of calling these methods directly on native Strings? No problem. Call 'extendPrototype()'. Make sure to
- not call this at the module level, at it'll effect the entire application lifecycle. You should really only use this at the method
- level. The one exception being if your application will not be a dependency of another application.
-
-'''javascript
-S.extendPrototype();
-var name = 'Your name is JP'.right(2); //'JP'
-S.restorePrototype(); //be a good citizen and clean up
-'''
-
-
-### Browser Compatibility
-...
-```
-
-#### <a name="apidoc.element.string.restorePrototype"></a>[function <span class="apidocSignatureSpan">string.</span>restorePrototype ()](#apidoc.element.string.restorePrototype)
-- description and source-code
-```javascript
-function restorePrototype() {
-  for (var i = 0; i < methodsAdded.length; ++i)
-    delete String.prototype[methodsAdded[i]];
-  methodsAdded.length = 0;
-}
-```
-- example usage
-```shell
-...
-'''
-
-Still like the clean look of calling these methods directly on native Strings? No problem. Call 'extendPrototype()'. Make sure to
- not call this at the module level, at it'll effect the entire application lifecycle. You should really only use this at the method
- level. The one exception being if your application will not be a dependency of another application.
-
-'''javascript
-S.extendPrototype();
-var name = 'Your name is JP'.right(2); //'JP'
-S.restorePrototype(); //be a good citizen and clean up
-'''
-
-
-### Browser Compatibility
-
-'string.js' has been designed to be compatible with Node.js and with IE6+, Firefox 3+, Safari 2+, Chrome 3+. Please [click here][
-browsertest] to run the tests in your browser. Report any browser issues here: https://github.com/jprichardson/string.js/issues
-...
 ```
 
 
